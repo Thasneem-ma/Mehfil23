@@ -1,6 +1,6 @@
-import { ref, listAll, getDownloadURL, deleteObject } from "firebase/storage";
-import { storage } from "../../firebaseConfig";
-import { useRouter } from 'next/navigation';
+// import { ref, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+// import { storage } from "../../firebaseConfig";
+// import { useRouter } from 'next/navigation';
 import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
@@ -65,17 +65,17 @@ function RemoveImageButton({ id }) {
         console.log("Failed to delete images");
       }
 
-      try {
-        const dbImages = await fetch("/api/imageurl").then(response => response.json());
-        const dbImageUrls = dbImages.imageurls.map(image => image.imgUrl);
+      // try {
+      //   const dbImages = await fetch("/api/imageurl").then(response => response.json());
+      //   const dbImageUrls = dbImages.imageurls.map(image => image.imgUrl);
 
-        const firebaseImageUrls = await fetchAllFirebaseImageUrls();
-        const missingUrls = firebaseImageUrls.filter(url => !dbImageUrls.includes(url));
+      //   const firebaseImageUrls = await fetchAllFirebaseImageUrls();
+      //   const missingUrls = firebaseImageUrls.filter(url => !dbImageUrls.includes(url));
 
-        await deleteMissingImagesFromFirebaseStorage(missingUrls);
-      } catch (error) {
-        console.log(error);
-      }
+      //   await deleteMissingImagesFromFirebaseStorage(missingUrls);
+      // } catch (error) {
+      //   console.log(error);
+      // }
 
       // router.refresh();
     }
