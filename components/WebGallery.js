@@ -63,7 +63,7 @@ function WebGallery() {
         <div className='grid grid-cols-4 gap-6'>
         {dbImages &&
         filteredImages().slice(0,4).map((res,i)=>(
-        <div className=''>
+        <div className='' key={i}>
           <Image priority src={res.imgUrl} width={300} height={300} alt={res.imgUrl}  className='w-auto h-auto aspect-auto' />
           </div>)) 
         }
@@ -72,7 +72,7 @@ function WebGallery() {
         <div className='grid grid-cols-2 mx-auto gap-6'>
         {dbImages &&
         filteredImages().slice(4,6).map((res,i)=>(
-        <div className=''>
+        <div className='' key={i}>
           <Image priority src={res.imgUrl} width={500} height={500} alt={res.imgUrl}  className='w-auto h-auto aspect-auto' />
           </div>)) 
         }
@@ -81,7 +81,7 @@ function WebGallery() {
         <div className='grid grid-cols-4 gap-6'>
         {dbImages &&
         filteredImages().slice(6,18).map((res,i)=>(
-        <div className=''>
+        <div className='' key={i}>
           <Image priority src={res.imgUrl} width={300} height={300} alt={res.imgUrl}  className='w-auto h-auto aspect-auto' />
           </div>)) 
         }
@@ -90,7 +90,7 @@ function WebGallery() {
        <div className='grid grid-cols-2 gap-6'>
         {dbImages &&
         filteredImages().slice(18,20).map((res,i)=>(
-        <div className='mx-auto'>
+        <div className='mx-auto' key={i}>
           <Image priority src={res.imgUrl} width={500} height={500} alt={res.imgUrl}  className='w-auto h-auto aspect-auto' />
           </div>)) 
         }
@@ -99,7 +99,7 @@ function WebGallery() {
        <div className='grid grid-cols-4 gap-6'>
         {dbImages &&
         filteredImages().slice(20,filteredImages().length).map((res,i)=>(
-        <div className=''>
+        <div className='' key={i}>
           <Image priority src={res.imgUrl} width={300} height={300} alt={res.imgUrl}  className='w-auto h-auto aspect-auto' />
           </div>)) 
         }

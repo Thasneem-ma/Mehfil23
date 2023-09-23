@@ -22,7 +22,7 @@ function TeamPointDisplay() {
     }
     useEffect(()=>{
         getTeamPoints();
-    },[getTeamPoints])
+    },[])
 
   return (
     <div className='flex flex-col mx-auto items-center py-14 '>
