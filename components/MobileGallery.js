@@ -82,7 +82,7 @@ function MobileGallery() {
         ))}
         { filteredImages().length > 2 &&
         filteredImages().slice(0,filteredImages().length-1).map((t,i)=>(
-          <div className=''>
+          <div className='' key={i}>
             <Image src={t.imgUrl} width={200} height={200} priority alt={t.imgUrl} />
           </div>
         ))}
