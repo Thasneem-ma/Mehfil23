@@ -80,9 +80,9 @@ function TeamPointsCalculate() {
   useEffect(()=>{
     getResults();
   },[])
+  
   useEffect(() => {
     calculateTeamPoints();
-    // console.log(sortedTeamPoints);
   }, [results]);
 
   const getPublishedTeamPoints = async () => {

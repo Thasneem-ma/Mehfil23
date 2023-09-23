@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 
 function TeamPointDisplay() {
@@ -21,7 +22,7 @@ function TeamPointDisplay() {
     }
     useEffect(()=>{
         getTeamPoints();
-    },[])
+    },[getTeamPoints])
 
   return (
     <div className='flex flex-col mx-auto items-center py-14 '>

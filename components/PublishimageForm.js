@@ -119,7 +119,7 @@ useEffect(() => {console.log(imgUrl);},[imgUrl])
             <label htmlFor="frames">Frames</label>
             </div>
           </div>
-        <div className='inline-flex space-x-1'>{images.map((img)=><h1 className='text-white '>{img.name + " "} ,</h1>)}</div>
+        <div className='inline-flex space-x-1'>{images.map((img,i)=><h1 className='text-white ' key={i}>{img.name + " "} ,</h1>)}</div>
         {!uploadProgress && <button 
           type='submit'
           className='bg-white w-fit p-2 px-6 text-lg font-medium text-teal-900'>Upload</button> }
