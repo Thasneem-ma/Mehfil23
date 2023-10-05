@@ -59,11 +59,13 @@ function MobileGallery() {
       </div>
         </div>
         {/* button */}
+        {dbImages.length > 1 &&
         <button onClick={() => {
           window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         }}>
           <BsFillArrowUpSquareFill className='fixed left-[85%] top-[80%] bg-white rounded-md shadow-lg animate-bounce' size={38} />
-        </button>
+        </button>}
+        
 
 {/* images */}
         <div className='space-y-6'>
@@ -77,18 +79,24 @@ function MobileGallery() {
       { filteredImages() &&
         filteredImages().slice(0,filteredImages().length-1).map((t,i)=>(
           <div className='' key={i}>
-            <Image src={t.imgUrl} width={200} height={200} priority alt={t.imgUrl} />
+            <Image src={t.imgUrl} width={170} height={200} priority alt={t.imgUrl} />
           </div>
         ))}
         { filteredImages().length > 2 &&
         filteredImages().slice(0,filteredImages().length-1).map((t,i)=>(
           <div className='' key={i}>
-            <Image src={t.imgUrl} width={200} height={200} priority alt={t.imgUrl} />
+            <Image src={t.imgUrl} width={170} height={200} priority alt={t.imgUrl} />
           </div>
         ))}
       </div>
       </div>
-
+          {dbImages.length > 1 && 
+          <div className='justify-center text-center hover:cursor-pointer'>
+        <h1 className='text-sm font-medium'>Published by</h1>
+        <h1 className='text-xs'>Standing Committee</h1>
+        <div  className='mx-auto w-36 h-0.5 bg-teal-900 relative top-1'></div>
+      </div>}
+      
     </div>
   )
 }
