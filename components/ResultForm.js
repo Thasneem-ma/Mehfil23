@@ -29,8 +29,9 @@ function ResultForm() {
   const [otherTeam3 , setOtherTeam3] = useState()
   const [otherTeam4 , setOtherTeam4] = useState()
   const [names , setNames] = useState([]);
+  const [addIndividualPoint, setAddIndividualPoint] = useState(true)
 
-  const router = useRouter();
+
 
 // getting names from database
   const getNames = async()=> {
@@ -73,6 +74,7 @@ function ResultForm() {
         body: JSON.stringify({
           result,
           category,
+          addIndividualPoint,
           firstplace,
           pointFirst,
           teamFirst,
@@ -89,11 +91,19 @@ function ResultForm() {
           otherTeam1,otherPoint1,otherTeam2,otherPoint2,otherTeam3,otherPoint3,otherTeam4,otherPoint4,
         })
       })
-      router.refresh()
+      
+      if (res.ok) {
+        window.location.reload();
+      }
+
     } catch (error) {
      console.log(error); 
     }
     
+    };
+    const handleRadioChange = (event) => {
+      const value = event.target.value === 'addIndividualPoint';
+      setAddIndividualPoint(value);
     };
     
   return (
@@ -116,7 +126,8 @@ function ResultForm() {
                     <option value="C Zone" className=''>C Zone</option>
                     <option value="B Zone" className=''>B Zone</option>
             </select>
-            </div>           
+            </div>   
+                    
             <div className="flex flex-col">
                 <label htmlFor="">Result</label>
                 <input 
@@ -127,7 +138,32 @@ function ResultForm() {
                 onChange={(e)=> setResult(e.target.value)}
                 />
             </div>
+            {/*  */}
+            <div className='pb-4 space-x-5'>
 
+          <label>
+        <input
+        required
+          type="radio"
+          value="addIndividualPoint"
+          checked={addIndividualPoint}
+          onChange={handleRadioChange}
+        />
+        Add Individual Point
+      </label>
+      <label>
+        <input
+        required
+          type="radio"
+          value="dontAddIndividualPoint"
+          checked={!addIndividualPoint}
+          onChange={handleRadioChange}
+        />
+        Do not Add Individual Point
+      </label>
+      </div>
+
+      {/*  */}
             </div>
             <h1 className=''>First Place</h1>
             <div className='grid grid-cols-3  gap-3 '>

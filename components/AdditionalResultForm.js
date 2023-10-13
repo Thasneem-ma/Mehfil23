@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { BsFillArrowDownSquareFill, BsFillArrowUpSquareFill } from 'react-icons/bs';
 
@@ -13,7 +12,6 @@ function AdditionalResultForm() {
     const [teamThird , setTeamThird] = useState('');
     const [showGeneralForm, setGeneralForm] = useState(false)
 
-    const router = useRouter();
 
     const showViewIt = (()=>{
         setGeneralForm(!showGeneralForm);
@@ -41,7 +39,7 @@ function AdditionalResultForm() {
           if(!res.ok){
             throw new Error("failed to upload the results")
           }else{
-            router.refresh();
+            window.location.reload();
           }
 
         } catch (error) {

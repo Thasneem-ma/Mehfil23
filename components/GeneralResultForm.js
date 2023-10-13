@@ -84,6 +84,7 @@ function GeneralResultForm() {
           body: JSON.stringify({
             result,
             category,
+            addIndividualPoint,
             firstplace,
             pointFirst,
             teamFirst,
@@ -103,7 +104,7 @@ function GeneralResultForm() {
         if(!res.ok){
           throw new Error("failed to upload the results")
         }else{
-          router.refresh();
+          window.location.reload()
         }
       } catch (error) {
         console.log(error); 

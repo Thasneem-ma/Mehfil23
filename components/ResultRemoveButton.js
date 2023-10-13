@@ -1,10 +1,8 @@
 "use client"
-import { useRouter } from 'next/navigation';
 import React from 'react'
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
 function ResultRemoveButton({id}) {
-    const router = useRouter()
     const removeThisResult = async () => {
         const confirmed = confirm("Are you sure you want to remove this result?");
 
@@ -14,7 +12,7 @@ function ResultRemoveButton({id}) {
                     method: 'DELETE',
                 })
                 if (res.ok) {
-                   router.refresh();
+                   window.location.reload()
                 }
             } catch (error) {
                 console.log(error);

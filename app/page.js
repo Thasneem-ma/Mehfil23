@@ -6,6 +6,7 @@ import TeamPointDisplay from '@/components/TeamPointDisplay'
 import Theme from '@/components/Theme'
 import GalleryDisplayBox from '@/components/GalleryDisplayBox'
 import Head from 'next/head'
+import { Suspense } from 'react'
 
 
 
@@ -13,13 +14,15 @@ import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div className='container mx-auto flex flex-col body'>
+    <div className='container duration-200 mx-auto flex flex-col body'>
       <Head>
       <title>Mehfil App</title>
       
       </Head>
      <Banner/>
+     <Suspense fallback={<p>Team points are loading</p>}>
      <TeamPointDisplay/>
+     </Suspense>
      <Theme/>
      <GalleryDisplayBox/>
     </div>

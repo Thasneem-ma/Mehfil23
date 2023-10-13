@@ -7,6 +7,7 @@ function MobileGallery() {
     const [filter , setFilter] = useState("Result")
     
     const getimageUrls = async()=>{
+      // await new Promise(resolve=> setTimeout(resolve,3000))
         try {
             const dbImagesUrls = await fetch("/api/imageurl",{
                 cache: "no-store"
@@ -25,7 +26,7 @@ function MobileGallery() {
 
     const filteredImages = ()=>{
       if (filter === 'Result') {
-        return dbImages;
+        return dbImages.filter(r => r.isResult === true)
       }else if (filter === 'Photos') {
         return dbImages.filter(r => r.isResult === false)
       }
@@ -42,7 +43,7 @@ function MobileGallery() {
 
   return (
     <div className='mt-20 px-[8%] pt-14 space-y-12 pb-12'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between px-[4%]'>
 
         <h1 className='font-semibold text-3xl'>Gallery</h1>
         <div className='bg-gray-50 rounded-md p-0.5 space-y-5 animate-in shadow-md font-medium '>
@@ -71,21 +72,19 @@ function MobileGallery() {
         <div className='space-y-6'>
         {filteredImages().slice(filteredImages().length-1, filteredImages().length).map((t,i)=>(
           <div className='mx-auto flex justify-center' key={i}>
-          <Image src={t.imgUrl} width={410} height={410} priority alt={t.imgUrl} />
+          <Image 
+          // className='shadow-md'
+          src={t.imgUrl} width={410} height={410} priority alt={t.imgUrl} />
         </div>
         ))}
-      <div className='mx-auto flex flex-wrap-reverse gap-4'>
+      <div className='mx-auto flex flex-wrap-reverse gap-4 justify-center'>
         
-      { filteredImages() &&
-        filteredImages().slice(0,filteredImages().length-1).map((t,i)=>(
-          <div className='' key={i}>
-            <Image src={t.imgUrl} width={170} height={200} priority alt={t.imgUrl} />
-          </div>
-        ))}
         { filteredImages().length > 2 &&
         filteredImages().slice(0,filteredImages().length-1).map((t,i)=>(
           <div className='' key={i}>
-            <Image src={t.imgUrl} width={170} height={200} priority alt={t.imgUrl} />
+            <Image 
+            // className='shadow-md'
+            src={t.imgUrl} width={147} height={200} priority alt={t.imgUrl} />
           </div>
         ))}
       </div>

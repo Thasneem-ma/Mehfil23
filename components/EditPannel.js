@@ -4,6 +4,7 @@ import {MdOutlineSettingsInputComposite,MdOutlineSubtitles,MdOutlineSchedule} fr
 import {BsImageFill,BsYoutube} from 'react-icons/bs'
 import {PiListNumbersDuotone} from 'react-icons/pi'
 import Link from 'next/link'
+import { TbEaseInOutControlPoints } from 'react-icons/tb'
 
 
 
@@ -42,6 +43,10 @@ function EditPannel() {
             <Link href={"/"} className='flex items-center text-xl space-x-2 bg-teal-900 p-2 text-white pl-5 cursor-pointer'>
                 <MdOutlineSchedule/>
                 <h1 className='text-lg'>Schedule</h1>
+            </Link>
+            <Link href={"/individualpoints"} className='flex items-center text-xl space-x-2 bg-teal-900 p-2 text-white pl-5 cursor-pointer'>
+                <TbEaseInOutControlPoints/>
+                <h1 className='text-lg'>Individual Points</h1>
             </Link>
             
             

@@ -15,7 +15,7 @@ function AddResult() {
 
 
   return (
-    <div className='flex flex-col mx-auto overflow-auto p-24'>
+    <div className='flex flex-col mx-auto overflow-auto p-24 pt-44'>
       <h1 className='font-medium italic text-3xl pb-4'>Add And View Results</h1>
       <div className='w-full pb-8'>
       <button 

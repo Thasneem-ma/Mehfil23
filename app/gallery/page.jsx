@@ -1,7 +1,7 @@
 "use client"
 import MobileGallery from '@/components/MobileGallery'
 import WebGallery from '@/components/WebGallery'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 function gallery() {
   return (
@@ -10,7 +10,9 @@ function gallery() {
         <WebGallery/>
       </div>
       <div className='block md:hidden'>
+        <Suspense fallback={<p>Loading feed...</p>}>
         <MobileGallery/>
+        </Suspense>
       </div>
     </div>
   )

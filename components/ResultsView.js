@@ -79,9 +79,9 @@ function ResultsView() {
         <option value="B Zone">B Zone</option>
         <option value="General">General</option>
       </select>
-      <div>
+      <div className='flex flex-col-reverse'>
   {filteredResults().map((d,i)=>(
-  <div className='pb-7' key={i}>
+  <div className='pb-7 ' key={i}>
    <div className='pb-1' key={i}>
     <div className=''>
        <div className='flex gap-x-2 text-lg'>

@@ -61,10 +61,6 @@ useEffect(() => {console.log(imgUrl);},[imgUrl])
         );
       });
     }
-
-    
-  
-
     
   }
 
@@ -92,7 +88,7 @@ useEffect(() => {console.log(imgUrl);},[imgUrl])
         <input id="dropzone-file" type="file" accept='image/*' multiple 
         className="hidden"
         onChange={(e)=>setImages(Array.from(e.target.files))} />
-        {images.length > 0 ? <div className='flex flex-col items-center text-center space-y-1.5'>
+        {images.length > 0 ? <div className='flex flex-col items-center text-center space-y-1.5 w-[25%] '>
           <div className='flex space-x-3'>
             <div className='space-x-0.5 text-white'>
             <input 
