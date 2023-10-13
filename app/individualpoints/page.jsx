@@ -2,7 +2,7 @@
 import React,{useState,useEffect} from 'react'
 import { BsPlayFill } from 'react-icons/bs'
 
-function individualpoints() {
+function Individualpoints() {
   const [buttonIsB , setButtonIsB] = useState(false)
   const [buttonIsC , setButtonIsC] = useState(false)
   const [buttonIsY , setButtonIsY] = useState(false)
@@ -233,4 +233,4 @@ function individualpoints() {
   )
 }
 
-export default individualpoints
+export default Individualpoints
